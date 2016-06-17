@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Component
 public class ListenerChain implements ApplicationListener {
-    @Autowired
+    @Autowired(required = false)
     private List<ProcessListener> listeners;
 
     /**
@@ -29,6 +29,10 @@ public class ListenerChain implements ApplicationListener {
      */
     @Override
     public void onApplicationEvent(ApplicationEvent applicationEvent) {
+        if (listeners == null) {
+            return;
+        }
+
         for (ProcessListener listener : listeners) {
             if (listener.process(applicationEvent)) {
                 break;
