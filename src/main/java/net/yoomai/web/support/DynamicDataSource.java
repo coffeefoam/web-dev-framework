@@ -4,7 +4,6 @@
  */
 package net.yoomai.web.support;
 
-import net.yoomai.web.support.DataSourceHolder;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /**

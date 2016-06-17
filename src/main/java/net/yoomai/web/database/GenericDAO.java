@@ -17,7 +17,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- *
+ * 基础操作,hibernate数据操作
  *
  * @author Ray & coffeefoam@126.com & http://github.com/coffeefoam
  * @(#)GenericDAO.java 1.0 17/06/2016
