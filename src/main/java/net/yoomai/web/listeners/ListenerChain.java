@@ -4,6 +4,11 @@
  */
 package net.yoomai.web.listeners;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationListener;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 /**
@@ -12,21 +17,20 @@ import java.util.List;
  * @author Ray & coffeefoam@126.com & http://github.com/coffeefoam
  * @(#)ListenerChain.java 1.0 17/06/2016
  */
-public class ListenerChain {
+@Component
+public class ListenerChain implements ApplicationListener {
+    @Autowired
     private List<ProcessListener> listeners;
 
-    public ListenerChain(List<ProcessListener> listeners) {
-        this.listeners = listeners;
-    }
-
     /**
-     * 处理事件,将事件传递给所有的监听器,直到返回成功为止
+     *  处理事件,将事件传递给所有的监听器,直到返回成功为止
      *
-     * @param event
+     * @param applicationEvent
      */
-    public void fireEvents(WebEvent event) {
+    @Override
+    public void onApplicationEvent(ApplicationEvent applicationEvent) {
         for (ProcessListener listener : listeners) {
-            if (listener.process(event)) {
+            if (listener.process(applicationEvent)) {
                 break;
             }
         }

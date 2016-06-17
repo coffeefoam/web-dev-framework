@@ -4,6 +4,8 @@
  */
 package net.yoomai.web.listeners;
 
+import org.springframework.context.ApplicationEvent;
+
 /**
  * 时间监听
  *
@@ -17,5 +19,5 @@ public interface ProcessListener {
      * @param event
      * @return
      */
-    public boolean process(WebEvent event);
+    public boolean process(ApplicationEvent event);
 }
