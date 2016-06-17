@@ -5,12 +5,12 @@
 package net.yoomai.web.support;
 
 /**
+ * 数据源名称的设置,用于查找,线程安全
+ *
  * @author Ray & coffeefoam@126.com & http://github.com/coffeefoam
  * @(#)CustomerContextHolder.java 1.0 17/06/2016
  */
 public class DataSourceHolder {
-    public final static String DATA_SOURCE_MYSQL_DEVELOPMENT = "mysqlDatasourceDev";
-    public final static String DATA_SOURCE_MYSQL = "mysqlDataSource";
 
     private static final ThreadLocal<String> contextHolder = new ThreadLocal<>();
 

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
     <bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
         <property name="driverUrl" value="jdbc:mysql://123.56.140.117/wolaiyee_v3?useUnicode=true&amp;characterEncoding=UTF8" />
@@ -35,8 +40,8 @@
         <property name="targetDataSources">
             <map>
                 <!-- 注意这里的value是和上面的DataSource的id对应，key要和下面的CustomerContextHolder中的常量对应 -->
-                <entry value-ref="dataSourceDev" key="mysqlDatasourceDev"/>
-                <entry value-ref="dataSource" key="mysqlDataSource"/>
+                <entry value-ref="dataSourceDev" key="development"/>
+                <entry value-ref="dataSource" key="production"/>
             </map>
         </property>
     </bean>
@@ -52,4 +57,11 @@
         </property>
     </bean>
 
+    <bean id="dataSourceExchange" class="net.yoomai.web.database.DataSourceExchange" />
+
+    <aop:config>
+        <aop:pointcut id="service" expression="execution(* net.yoomai..*.service.*.*(..))" />
+        <!-- 切换数据必须先执行 -->
+        <aop:advisor advice-ref="dataSourceExchange" pointcut-ref="service" order="1" />
+    </aop:config>
 </beans>
