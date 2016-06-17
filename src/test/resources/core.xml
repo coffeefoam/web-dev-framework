@@ -14,7 +14,7 @@
 
     <bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="driverUrl" value="jdbc:mysql://123.56.140.117/wolaiyee_v3?useUnicode=true&amp;characterEncoding=UTF8"/>
+        <property name="driverUrl" value="jdbc:mysql:///wolaiyee_v3?useUnicode=true&amp;characterEncoding=UTF8"/>
         <property name="user" value="v3"/>
         <property name="password" value="0o9i8u7y"/>
         <property name="alias" value="v3_pool"/>
@@ -28,7 +28,7 @@
 
     <bean id="dataSourceDev" class="org.logicalcobwebs.proxool.ProxoolDataSource">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="driverUrl" value="jdbc:mysql://123.56.140.117/wolaiyee_v3?useUnicode=true&amp;characterEncoding=UTF8"/>
+        <property name="driverUrl" value="jdbc:mysql:///wolaiyee_v3?useUnicode=true&amp;characterEncoding=UTF8"/>
         <property name="user" value="v3"/>
         <property name="password" value="0o9i8u7y"/>
         <property name="alias" value="v3_pool"/>

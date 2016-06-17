@@ -19,7 +19,6 @@ public class TopicService {
     @Autowired
     private TopicDAO topicDAO;
 
-    @WebDataSoruce(name = "development")
     public Topic getTopic(int id) {
         return topicDAO.get(id);
     }
