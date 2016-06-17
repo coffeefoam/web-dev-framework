@@ -2,9 +2,8 @@
  * Copyright (c) 2015-2016, wolaiyee.com. All rights reserved.
  * wolaiyee.com. Use is subject to license terms.
  */
-package net.yoomai.web.database;
+package net.yoomai.web.support;
 
-import net.yoomai.web.support.DataSourceHolder;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 

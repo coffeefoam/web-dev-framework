@@ -35,7 +35,7 @@
         <property name="houseKeepingTestSql" value="select CURRENT_DATE" />
     </bean>
 
-    <bean id="multipleDataSource" class="net.yoomai.web.database.DynamicDataSource">
+    <bean id="multipleDataSource" class="net.yoomai.web.support.DynamicDataSource">
         <property name="defaultTargetDataSource" ref="dataSourceDev"/>
         <property name="targetDataSources">
             <map>
@@ -57,7 +57,7 @@
         </property>
     </bean>
 
-    <bean id="dataSourceExchange" class="net.yoomai.web.database.DataSourceExchange" />
+    <bean id="dataSourceExchange" class="net.yoomai.web.support.DataSourceExchange" />
 
     <aop:config>
         <aop:pointcut id="service" expression="execution(* net.yoomai..*.service.*.*(..))" />
